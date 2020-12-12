@@ -1,17 +1,12 @@
 import React from 'react';
-import styles from './SliderItem.module.scss';
+import './SliderItem.scss';
 import PropTypes from 'prop-types';
 
 const SliderItem = ({imageSrc, year, movieName, darkStyle}) => {
-	let slideClasses = styles.SliderItem;
-	if (darkStyle) {
-		slideClasses += ' ' + styles.SliderItem_darkStyle
-	}
-	
 	return(
-		<div className={slideClasses}>
+		<div className={darkStyle ? 'SliderItem SliderItem_darkStyle' : 'SliderItem'}>
 			<img src={imageSrc} alt=""/>
-			<div className={styles['SliderItem__caption']}>
+			<div className='SliderItem__caption container'>
 				<h4>
 					{year}
 				</h4>

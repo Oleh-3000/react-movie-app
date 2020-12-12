@@ -1,0 +1,82 @@
+.MovieInfo {
+	display: flex;
+	flex-direction: column;
+
+	img {
+		max-width: 360px;
+		width: 100%;
+	}
+
+	.right-side {
+		margin-top: 35px;
+		
+		ul {
+			list-style: none;
+			margin: 30px 0;
+			padding-left: 0;
+			font-size: 18px;
+			li + li {
+				margin-top: 20px;
+			}
+		}
+	}
+
+	.MovieInfo__rating {
+		margin-top: 30px;
+		h3 {
+			font-weight: 700;
+		}
+	}
+	
+	p {
+		font-size: 16px;
+		line-height: 1.5;
+		font-weight: 500;
+	}
+	
+	@media (min-width: 768px) {
+		flex-direction: row;
+		.left-side {
+			margin-right: 20px;
+		}
+		
+		img {
+			width: 360px;
+		}
+
+		.right-side__inner {
+			padding-left: 40px;
+		}
+	}
+	
+	@media (min-width: 1200px) {
+		.MovieInfo__rating {
+			margin-top: 50px;
+		}
+		
+		.left-side {
+			margin-right: 35px;
+		}
+		
+		.right-side {
+			margin-top: 50px;
+			
+			ul {
+				margin: 50px 0;
+				font-size: 24px;
+			}
+			
+			li + li {
+				margin-top: 30px;
+			}
+		}
+
+		.right-side__inner {
+			padding-left: 180px;
+		} 
+		
+		p {
+			font-size: 18px;
+		}
+	}
+}

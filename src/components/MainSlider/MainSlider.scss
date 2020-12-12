@@ -3,13 +3,13 @@
 		top: calc(100% - 106px);
 		z-index: 1;
 		color: #fff;
-		font-size: 24px;
+		font-size: 0;
 		font-weight: 500;
 		width: auto;
 	}
 	
 	.slick-next {
-		right: 50px;
+		right: 15px;
 		padding-right: 86px;
 		
 		&:before {
@@ -35,7 +35,7 @@
 	}
 	
 	.slick-prev {
-		left: 140px;
+		left: 15px;
 		padding-left: 86px;
 
 		&:before {
@@ -57,6 +57,19 @@
 			left: 5px;
 			width: 66px;
 			border-top: 3px solid #fff;
+		}
+	}
+	
+	@media (min-width: 1200px) {
+		.slick-prev, .slick-next {
+			font-size: 24px;
+		}
+
+		.slick-prev {
+			left: calc(50vw - 514px);
+		}
+		.slick-next {
+			right: calc(50vw - 514px);
 		}
 	}
 }

@@ -1,0 +1,39 @@
+.SliderItem {
+	position: relative;
+	
+	&__caption {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		padding-top: 30px;
+	}
+	
+	img {
+		width: auto;
+		height: 300px;
+	 }
+	
+	@media (min-width: 480px) {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	
+	@media (min-width: 1200px) {
+		img {
+			width: 94%;
+			height: auto;
+		}
+		&__caption {
+			padding-top: 150px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+}
+.SliderItem_darkStyle {
+	color: #202020;
+}

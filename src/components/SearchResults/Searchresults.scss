@@ -1,0 +1,47 @@
+.SearchResults {
+	padding-top: 40px;
+	
+	form {
+		position: relative;
+		max-width: 540px;
+		
+		input {
+			width: 100%;
+			font-size: 18px;
+			line-height: 22px;
+			padding: 24px;
+			padding-right: 50px;
+			color: #C4C4C4;
+			
+			&::placeholder {
+				color: #C4C4C4;
+			}
+			
+			&:focus {
+				box-shadow: none;
+				outline: none;
+			}
+		}
+		
+		button {
+			position: absolute;
+			background: transparent;
+			border: none;
+			top: 24px;
+			right: 24px;
+			cursor: pointer;
+		}
+	}
+	
+	&__inner {
+		padding-top: 150px;
+		
+		@media (min-width: 768px) {
+			padding-left: 50px;
+		}
+		
+		@media (min-width: 1200px) {
+			padding-left: 350px;
+		}
+	}
+}

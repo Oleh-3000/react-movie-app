@@ -1,0 +1,89 @@
+.MovieItem {
+	position: relative;
+	
+	img {
+		position: absolute;
+		top: -75px;
+		left: 0;
+		opacity: 0;
+		transition: ease-in-out .3s;
+		z-index: -1;
+		
+		@media (min-width: 1200px) {
+			top: -130px;
+			left: -300px;
+			width: 420px;
+		}
+	}
+	
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	&__title {
+		transition: ease-in-out .3s;
+		padding-right: 30px;
+		padding-bottom: 20px;
+		
+		a {
+			font-weight: 500;
+			color: #878787;
+			text-decoration: none;
+		}
+		
+		@media (min-width: 768px) {
+			padding-right: 60px;
+		}
+
+		@media (min-width: 1200px) {
+			padding-right: 120px;
+		}
+	}
+	
+	&__right-block {
+		padding-bottom: 20px;
+		color: #878787;
+		transition: ease-in-out .3s;
+		text-align: right;
+		> * + * {
+			margin-top: 5px;
+		}
+	}
+	
+	&:hover {
+		img {
+			opacity: .6;
+		}
+		.MovieItem__title a,
+		.MovieItem__right-block {
+			font-weight: 700;
+			color: #ffffff;
+		}
+	}
+	
+	& + & {
+		margin-top: 30px;
+		
+		@media (min-width: 1200px) {
+			margin-top: 46px;
+		}
+	}
+	
+	&:nth-child(7),
+	&:nth-child(8),
+	&:nth-child(9) {
+		img {
+			@media (min-width: 1200px) {
+				top: -230px;
+			}
+		}
+	}
+	&:last-child {
+		img {
+			@media (min-width: 1200px) {
+				top: -300px;
+			}
+		}
+	}
+}
