@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './Searchresults.scss';
 import MovieItem from '../MovieItem/MovieItem';
-
+import Pagination from "../Pagination/Pagination";
 import searchIcon from '../../image/search icon.svg';
 
 const SearchResults = () => {
 	const [resultList, setResultList] = useState([]);
+	const [items, setItems] = useState('');
+	let [page, setPage] = useState(1);
 	const [searchQuery,setSearchQuery] = useState('');
 	const [isLoading,setLoading] = useState(false);
 	const [isError,setError] = useState(false);
@@ -14,17 +16,15 @@ const SearchResults = () => {
 		setSearchQuery(e.target.value);
 	}
 
-	let link = `http://www.omdbapi.com/?apikey=8b47da7b&s=${searchQuery}`;
-	console.log('searchQuery', searchQuery);
-	console.log('link', link);
-	console.log('resultList', resultList);
-	
-
-	const getResultList = async () => {
+	const getResultList = async (search, page = 1) => {
+		let link = `http://www.omdbapi.com/?apikey=8b47da7b&s=${search}&page=${page}`;
+		
 		setLoading(true);
+		
 		try {
 			const response = await fetch(link);
-			const {Search} = await response.json();
+			const {Search, totalResults} = await response.json();
+			setItems(totalResults);
 			setResultList(Search);
 			setLoading(false);
 		} catch (e) {
@@ -34,12 +34,13 @@ const SearchResults = () => {
 	}
 	
 	useEffect(() => {
-		getResultList();
+		getResultList(searchQuery, page);
 	}, []);
 	
 	const handleSubmit = e => {
 		e.preventDefault();
-		getResultList();
+		setPage(1);
+		getResultList(searchQuery, page);
 	}
 
 	const addMovieList = () => {
@@ -51,7 +52,6 @@ const SearchResults = () => {
 			return <div>ERROR</div>
 		}
 		if(resultList) {
-			console.log('resultList 11111', resultList);
 			return (
 				resultList.map((movie) => {
 					return(
@@ -69,6 +69,18 @@ const SearchResults = () => {
 		}
 	}
 	
+	const prevPage = () => {
+		if (page !== 1) {
+			setPage(page -=1);
+			getResultList(searchQuery, page);
+		}
+	}
+	
+	const nextPage = () => {
+		setPage(page +=1)
+		getResultList(searchQuery, page);
+	}
+	
 	return (
 		<div className='SearchResults'>
 			<form onSubmit={handleSubmit}>
@@ -84,6 +96,13 @@ const SearchResults = () => {
 			</form>
 			<div className='SearchResults__inner'>
 				{addMovieList()}
+				
+				<Pagination
+					page={page}
+					allItems={items}
+					prevPage={prevPage}
+					nextPage={nextPage}
+				/>
 			</div>
 		</div>
 	);

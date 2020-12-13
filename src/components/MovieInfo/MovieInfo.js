@@ -1,9 +1,9 @@
 import React from 'react';
 import './MovieInfo.scss';
+import PropTypes from 'prop-types';
 
 const MovieInfo = ({info}) => {
 	const {Poster, imdbRating, Title, Runtime, Genre, Year, Type, Plot} = info;
-	console.log('movie info', info)
 	
 	return(
 		<section>
@@ -35,5 +35,28 @@ const MovieInfo = ({info}) => {
 		</section>
 	);
 }
+
+MovieInfo.propTypes = {
+	Poster: PropTypes.string,
+	imdbRating: PropTypes.string,
+	Title: PropTypes.string,
+	Runtime: PropTypes.string,
+	Genre: PropTypes.string,
+	Year: PropTypes.string,
+	Type: PropTypes.string,
+	Plot: PropTypes.string,
+}
+
+MovieInfo.defaultTypes = {
+	Poster: '',
+	imdbRating: '',
+	Title: '',
+	Runtime: '',
+	Genre: '',
+	Year: '',
+	Type: '',
+	Plot: '',
+}
+
 
 export default MovieInfo;

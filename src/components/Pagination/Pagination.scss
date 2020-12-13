@@ -1,0 +1,70 @@
+.Pagination {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 100px;
+	
+	button {
+		border: none;
+		background: transparent;
+		padding: 0;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		min-height: 40px;
+	}
+	
+	.btn-next {
+		position: relative;
+		padding-right: 86px;
+
+		&:before {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			content: '';
+			width: 10px;
+			height: 10px;
+			border-right: 3px solid #fff;
+			border-bottom: 3px solid #fff;
+			transform: rotate(-45deg) translateY(-50%);
+			opacity: 1;
+		}
+
+		&:after {
+			position: absolute;
+			content: '';
+			top: 50%;
+			right: 5px;
+			width: 66px;
+			border-top: 3px solid #fff;
+		}
+	}
+	
+	.btn-prev {
+		padding-left: 86px;
+		
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			content: '';
+			width: 10px;
+			height: 10px;
+			border-left: 3px solid #fff;
+			border-bottom: 3px solid #fff;
+			transform: rotate(45deg) translateY(-50%);
+			opacity: 1;
+		}
+
+		&:after {
+			position: absolute;
+			content: '';
+			left: 5px;
+			top: 50%;
+			width: 66px;
+			border-top: 3px solid #fff;
+		}
+	}
+}

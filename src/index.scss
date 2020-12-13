@@ -75,3 +75,59 @@ h6 {
   font-weight: 500;
   
 }
+
+.headerPage {
+  position: relative;
+}
+
+.back-link__block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.back-link {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px 20px 20px 86px;
+  transition: all .3s;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg) translateY(-50%);
+    opacity: 1;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    left: 5px;
+    top: 50%;
+    width: 66px;
+    border-top: 3px solid #fff;
+  }
+  
+  &:hover {
+    background-color: rgba(0,0,0,.6);
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 24px;
+  } 
+}

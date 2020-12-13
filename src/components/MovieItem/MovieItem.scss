@@ -79,7 +79,7 @@
 			}
 		}
 	}
-	&:last-child {
+	&:nth-child(10) {
 		img {
 			@media (min-width: 1200px) {
 				top: -300px;
